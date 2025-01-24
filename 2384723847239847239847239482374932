@@ -8198,7 +8198,12 @@ task.spawn(function()
             v:Destroy()
         end
     end
-    
+    repeat task.wait() until Players.LocalPlayer:FindFirstChild("PlayerGui")
+    local clone = Players.LocalPlayer.PlayerGui.PlayerScript:Clone()
+    clone.Parent = Players.LocalPlayer.PlayerGui
+    repeat task.wait() until Players.LocalPlayer:FindFirstChild("GuiScript")
+    local clone2 = Players.LocalPlayer.PlayerGui.GuiScript:Clone()
+    clone2.Parent = Players.LocalPlayer.PlayerGui
 end)
 
 Character:WaitForChild("Humanoid").Died:Connect(FunctionTable['HumDied'])
@@ -8226,6 +8231,10 @@ Players.LocalPlayer.CharacterAdded:Connect(function(NewCharacter)
                 v:Destroy()
             end
         end
+        local clone = Players.LocalPlayer.PlayerGui:WaitForChild("PlayerScript"):Clone()
+        clone.Parent = Players.LocalPlayer.PlayerGui
+        local clone2 = Players.LocalPlayer.PlayerGui:WaitForChild("GuiScript"):Clone()
+        clone2.Parent = Players.LocalPlayer.PlayerGui
     end)
     charrespawning = false
 end)
