@@ -3853,9 +3853,9 @@ TextButton_60.MouseButton1Click:Connect(function()
                     return
                 end
                 local command, playerName = msg:match("^(%S+)%s*(.*)")
-                if command == ".rtg" and playerName then
+                if command == ">rtg" and playerName then
                     unwhitelistPlayer(playerName)
-                elseif command == ".tg" and playerName then
+                elseif command == ">tg" and playerName then
                     whitelistPlayer(playerName)
                 end
             end)
@@ -6234,9 +6234,9 @@ FunctionTable.VariableFunctions = {
                	return
                end
 					local command, playerName = msg:match("^(%S+)%s*(.*)")
-					if command == ".unsoft" and playerName then
+					if command == ">unsoft" and playerName then
 						unwhitelistPlayer(playerName)
-					elseif command == ".soft" and playerName then
+					elseif command == ">soft" and playerName then
 						whitelistPlayer(playerName)
 					end
 				end)
